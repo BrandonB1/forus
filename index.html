@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<title>Jasmine Crockett for TX 30</title>
+
+
+	<style type="text/css">
+		.btn-primary {
+			background-color: red;
+			border-color: black;
+		}
+		.btn-primary:hover {
+			background-color: red;
+			border-color: black;
+			-moz-box-shadow: 0 0 5rem #ccc;
+			-webkit-box-shadow: 0 0 5rem #ccc;
+			box-shadow: 0 0 5rem #ccc;
+		}
+		.navbar-dark {
+			background-color: black !important;
+		}
+		.navbar-dark .navbar-nav .active,
+		.navbar-dark .navbar-nav .nav-link:hover {
+			color: red !important;
+		}
+		.navbar-dark .navbar-nav .nav-link {
+			color: white;
+		}
+
+		.mobile-nav-item {
+			width: 100%;
+			padding-top: 0.5em;
+			padding-bottom: 0.5em;
+			padding-left: 1em;
+			text-decoration-color: red;
+		}
+		.mobile-nav-item:hover {
+			background-color: black;
+			text-decoration-color: red;
+		}
+		a .mobile-nav-item {
+			color: black;
+			font-size: 1.5em;
+			text-decoration-color: red;
+		}
+		a .mobile-nav-item:hover {
+			color: red !important;
+			text-decoration-color: red;
+		}
+
+		h2 {
+			color: red;
+		}
+		
+		#top-space {
+			display: none;
+		}
+
+		.img-cap {
+			z-index: 98;
+			background-color: #61bfbc;
+			background: rgba(97, 191, 188, 0.5);
+			position: absolute;
+			bottom: 0;
+			right: 0;
+			width: 100%;
+			height: 100%;
+			margin: 0 auto;
+			padding: 0 auto;
+			/*padding: 0.5em;*/
+		}
+		.img-corner {
+			z-index: 99;
+			position: absolute;
+			bottom: 25%;
+			left: 5%;
+		}
+		.img-cap h4, .img-cap p, .img-cap div {
+			color: white;
+		}
+		.btn-cap {
+			margin-top: 0.25em;
+			margin-bottom: 0.25em;
+		}
+		@media only screen and (max-width: 991px) {
+			.img-cap h4 {
+				font-size: 1em;
+			}
+			.img-cap p {
+				font-size: 0.5em;
+			}
+			.img-cap .btn-primary {
+				font-size: 0.55em;
+			}
+			.btn-cap {
+				margin-top: 0.15em;
+				margin-bottom: 0.15em;
+			}
+		}
+		@media only screen and (max-width: 650px) {
+			.img-cap h4 {
+				font-size: 0.45em;
+			}
+			.img-cap p {
+				font-size: 0.28em;
+			}
+			.img-cap .btn-primary {
+				font-size: 0.3em;
+			}		
+			.btn-cap {
+				margin-top: 0.2em;
+				margin-bottom: 0.2em;
+				background-color: blue;
+				word-wrap: break-word;
+				white-space: normal;
+
+			}	
+			.img-corner {
+				bottom: 5%;
+			}
+		}
+		@media only screen and (max-width: 1100px) {
+			.img-corner input {
+				font-size: 0.5em;
+			}
+			.img-corner {}
+		}
+
+		@media only screen and (max-width: 375px) {
+			#top-space {
+				display: block;
+
+			}
+		}
+
+		.cc {
+			-moz-box-shadow: 0 0 9px #ccc;
+			-webkit-box-shadow: 0 0 9px #ccc;
+			box-shadow: 0 0 9px #ccc;
+			margin-top: 1rem;
+			padding-bottom: 1rem;
+		}
+		.checkbox-format {
+			margin-right: 2rem;
+		}
+
+		#cover {
+
+		}
+	</style>
+</head>
+<body>
+	<div class="d-flex justify-content-around flex-wrap" style="padding-left: 5%; padding-right: 5%; align-items: center; background-color: #61bfbc;" id="navigation-bar">
+		<img src="media/logo.png" class="img img-fluid d-flex justify-content-center" style="max-width: 100px; margin-top: 0.25em; margin-bottom: 0.25em;">
+		<a href=""><img src="http://assets.stickpng.com/thumbs/5a2fe3efcc45e43754640848.png" class="img-fluid rounded-circle" style="max-width: 35px; margin-top: 0.25em; margin-bottom: 0.25em;"></a>
+		<a href=""><img src="https://i.pinimg.com/originals/f9/52/47/f95247af33c20a2b1e693dd1054751c7.png" class="img-fluid rounded-circle" style="max-width: 35px; margin-top: 0.25em; margin-bottom: 0.25em;"></a>
+		<a href=""><img src="https://toppng.com/uploads/preview/instagram-logo-circle-11549679754rhbcorxntv.png" class="img-fluid rounded-circle" style="max-width: 35px; margin-top: 0.25em; margin-bottom: 0.25em;"></a>
+		<a href=""><img src="https://facebookbrand.com/wp-content/uploads/2019/04/f_logo_RGB-Hex-Blue_512.png?w=512&h=512" class="img-fluid rounded-circle" style="max-width: 35px; margin-top: 0.25em; margin-bottom: 0.25em;"></a>
+		<div class="d-flex justify-content-center"><a href="#" class="btn btn-primary" style="flex-basis: 50px; border-radius: 0.9em;  margin-top: 0.25em; margin-bottom: 0.25em;">Donate</a></div>
+	</div>
+
+
+<!-- 	<div class="container" id="cover">
+		<div style="min-width: 100%; min-height: 100%;"><img src="media/cover.jpeg" height="100%" width="100%" style="min-width: 100%; min-height: 100%;">
+			<div class="img-cap">
+				<center>
+					<h3>Join The Team</h3>
+					<p style="font-style: italic;">Do your part to send a proven progressive champion to Congress</p>
+				</center>
+			<form>
+				<div class="form-group">
+					<input type="text" class="form-control" name="fname" placeholder="First Name">
+					<input type="text" class="form-control" name="lname" placeholder="Last Name">
+					<input type="email" class="form-control" name="email" placeholder="Email Address">
+					<input type="text" class="form-control" name="number" placeholder="Phone Number">
+				</div>
+				<div class="form-group">
+
+						<span class="checkbox-format"><input class="form-check-input" type="checkbox" value="Knock On Doors" id="knock">
+						<label class="form-check-label" for="knock">
+							Knock On Doors
+						</label></span><br>
+						<span class="checkbox-format"><input class="form-check-input" type="checkbox" value="Make Calls" id="call">
+						<label class="form-check-label" for="call">
+							Make Calls
+						</label></span><br>
+						<span class="checkbox-format"><input class="form-check-input" type="checkbox" value="Host Meet & Greet" id="mag">
+						<label class="form-check-label" for="mag">
+							Meet & Greet
+						</label></span><br>
+						<span class="checkbox-format"><input class="form-check-input" type="checkbox" value="Host Phone Bank" id="mpb">
+						<label class="form-check-label" for="mpb">
+							Host Phone Bank
+						</label></span><br>
+						<span class="checkbox-format"><input class="form-check-input" type="checkbox" value="Host Blockwalk" id="walk">
+						<label class="form-check-label" for="walk">
+							Host Blockwalk
+						</label></span><br>
+						<input class="form-check-input" type="checkbox" value="Host Fundraiser" id="money">
+						<span class="checkbox-format"><label class="form-check-label" for="money">
+							Host Fundraiser
+						</label></span><br>
+						<span class="checkbox-format"><input class="form-check-input" type="checkbox" value="Get A Yard Sign" id="sign">
+						<label class="form-check-label" for="sign">
+							Get A Yard Sign
+						</label></span>
+				</div>
+				<div class="form-group">
+					<button type="submit" class="btn btn-primary">Submit</button>
+				</div>
+			</form>
+			</div>
+		</div>
+
+	</div> -->
+
+
+
+<div class="container-fluid">
+	<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+  <ol class="carousel-indicators">
+    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+  </ol>
+  <div class="carousel-inner" >
+    <div class="carousel-item active">
+      <img class="d-block w-100" src="media/cover.jpeg" alt="First slide" height="100%" width="100%">
+      <div class="img-cap">
+      				<div class="img-corner">
+				<center>
+					<div id="top-space"><br><br><br><br></div>
+					<h3>Join The Team</h3>
+					<p style="font-style: italic;">Do your part to send a proven progressive champion to Congress
+					</p>
+
+			<form class="">
+				<div class="form-group">
+					<input type="text" class="form-control" name="fname" placeholder="First Name" style="max-width: 33%; min-width: 33%;">
+					<input type="text" class="form-control" name="lname" placeholder="Last Name" style="max-width: 33%; min-width: 33%;">
+					<input type="email" class="form-control" name="email" placeholder="Email Address" style="max-width: 33%; min-width: 33%;">
+					<input type="text" class="form-control" name="number" placeholder="Phone Number" style="max-width: 33%; min-width: 33%;">
+				</div>
+				<div class="form-group">
+
+						<span class="checkbox-format"><input class="form-check-input" type="checkbox" value="Knock On Doors" id="knock">
+						<label class="form-check-label" for="volunteer">
+							Volunteer
+						</label></span><br>
+				</div>
+				<div class="form-group">
+					<button type="submit" class="btn btn-primary">Submit</button>
+				</div>
+			</form>
+		</center>
+			</div>
+      </div>
+    </div>
+  </div>
+</div>
+		
+	<footer style="margin-top: 2rem;background-color: black;margin-bottom: 0px; padding-bottom: 0px;">
+		<center><h5 style="color: white; margin-bottom: 0px;">Political ad. paid for by Jasmine Crockett Campaign</h5></center>
+	</footer>
+
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+</body>
+</html>
