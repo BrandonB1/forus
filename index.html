@@ -190,16 +190,16 @@
 					<p style="font-style: italic; font-weight: 500; font-size: 1em;">Do your part to send a proven progressive champion to Congress
 					</p>
 
-			<form class="">
+			<form id="signup" onsubmit="return postToGoogle();">
 				<div class="form-group">
-					<input type="text" class="form-control" name="fname" placeholder="First Name" style="max-width: 33%; min-width: 33%;">
-					<input type="text" class="form-control" name="lname" placeholder="Last Name" style="max-width: 33%; min-width: 33%;">
-					<input type="email" class="form-control" name="email" placeholder="Email Address" style="max-width: 33%; min-width: 33%;">
-					<input type="text" class="form-control" name="number" placeholder="Phone Number" style="max-width: 33%; min-width: 33%;">
+					<input type="text" class="form-control" name="entry.249136958" placeholder="First Name" style="max-width: 33%; min-width: 33%;" data-name="fname" id="fname" type="text">
+					<input type="text" class="form-control" name="entry.707006320" placeholder="Last Name" style="max-width: 33%; min-width: 33%;" data-name="lname" id="lname" type="text">
+					<input type="email" class="form-control" name="entry.307485487" placeholder="Email Address" style="max-width: 33%; min-width: 33%;" data-name="email" id="email" type="text">
+					<input type="text" class="form-control" name="entry.922746076" placeholder="Phone Number" style="max-width: 33%; min-width: 33%;" data-name="number" id="number" type="text">
 				</div>
 				<div class="form-group">
 
-						<span class="checkbox-format"><input class="form-check-input" type="checkbox" value="Knock On Doors" id="knock">
+						<span class="checkbox-format"><input class="form-check-input" type="checkbox" value="Volunteer" id="volunteer" data-name="volunteer" name="entry.1079793115">
 						<label class="form-check-label" for="volunteer">
 							Volunteer
 						</label></span><br>
@@ -222,5 +222,40 @@
 
 	<script type="text/javascript" src="js/jquery.js"></script>
 	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script>
+    function postToGoogle() {
+      var field1 = $("#fname").val();
+      var field2 = $("#lname").val();
+      var field3 = $("#email").val();
+      var field4 = $("#number").val();
+      var field5 = $("#volunteer").val();
+
+      $.ajax({
+        url: "https://docs.google.com/forms/u/4/d/e/1FAIpQLSfa9VBd8Rwv-0dCJvVP6Mir1uMI8_cjvZS85p08RkgFeWSaZQ/formResponse",
+          
+        //add your google form generated numbers below which are also the 'names' of your inputs     
+        data: {
+          "entry.249136958": field1,
+          "entry.707006320": field2,
+          "entry.307485487": field3,
+          "entry.922746076": field4,
+          "entry.1079793115": field5
+        },
+        type: "POST",
+        dataType: "xml",
+        success: function (d) {
+          $('#contact').trigger('reset');
+        },
+        error: function (x, y, z) {
+          $('#contact').trigger('reset');
+        }
+      });
+      return false;
+    }
+  </script>
 </body>
 </html>
